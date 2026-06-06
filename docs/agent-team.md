@@ -30,7 +30,7 @@ Usage guidance
 - Coder and Designer only modify files assigned to them; report validation steps and remaining risks.
 
 (Replace text updated with this summary.)
-.github/agents/coder.agent.md
-.github/agents/designer.agent.md
-.github/agents/orchestrator.agent.md
-.github/agents/planner.agent.md
+- **Coder**: '.github/agents/coder.agent.md'
+- **Designer**: '.github/agents/designer.agent.md'
+- **Orchestrator**: '.github/agents/orchestrator.agent.md'
+- **Plenner**: '.github/agents/planner.agent.md'
