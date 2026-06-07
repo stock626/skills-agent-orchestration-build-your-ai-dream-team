@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "name": "Aurora CRM Revamp",
+      "owner": "Priya K.",
+      "status": "Active",
+      "recentActivity": "3h ago",
+      "priority": "High"
+    },
+    {
+      "name": "Beacon Analytics Pipeline",
+      "owner": "Carlos M.",
+      "status": "At Risk",
+      "recentActivity": "2d ago",
+      "priority": "Critical"
+    },
+    {
+      "name": "Comet Mobile App",
+      "owner": "Aisha R.",
+      "status": "On Hold",
+      "recentActivity": "1w ago",
+      "priority": "Medium"
+    },
+    {
+      "name": "Delta Infra Migration",
+      "owner": "Liam S.",
+      "status": "Planning",
+      "recentActivity": "10d ago",
+      "priority": "Low"
+    },
+    {
+      "name": "Echo Security Audit",
+      "owner": "Nora T.",
+      "status": "Completed",
+      "recentActivity": "5m ago",
+      "priority": "Medium"
+    },
+    {
+      "name": "Flux Integration Tests",
+      "owner": "Omar B.",
+      "status": "Blocked",
+      "recentActivity": "30m ago",
+      "priority": "High"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Pulse</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Project Pulse</h1>
+    <p class="lead">A quick view of current project health and recent activity.</p>
+  </header>
+
+  <main class="dashboard" id="dashboard">
+    <ul id="projects-grid" role="list" aria-live="polite"></ul>
+  </main>
+
+  <script>
+    // Fetch project data and render project cards
+    (function () {
+      const grid = document.getElementById('projects-grid');
+
+      function createCard(project, index) {
+        const li = document.createElement('li');
+        li.className = 'project-card';
+        li.setAttribute('role', 'listitem');
+        li.setAttribute('tabindex', '0');
+
+        const titleId = `proj-title-${index}`;
+        const metaId = `proj-meta-${index}`;
+
+        const title = document.createElement('h3');
+        title.id = titleId;
+        title.textContent = project.name;
+
+        const owner = document.createElement('p');
+        owner.className = 'owner';
+        owner.textContent = `Owner: ${project.owner}`;
+
+        const meta = document.createElement('p');
+        meta.id = metaId;
+        meta.className = 'meta';
+        meta.textContent = `Status: ${project.status} · Priority: ${project.priority} · Recent activity: ${project.recentActivity}`;
+
+        li.setAttribute('aria-labelledby', titleId);
+        li.setAttribute('aria-describedby', metaId);
+
+        li.appendChild(title);
+        li.appendChild(owner);
+        li.appendChild(meta);
+
+        return li;
+      }
+
+      function render(projects) {
+        grid.innerHTML = '';
+        projects.forEach((p, i) => {
+          const card = createCard(p, i);
+          grid.appendChild(card);
+        });
+      }
+
+      fetch('project-data.json', { cache: 'no-store' })
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load project data');
+          return response.json();
+        })
+        .then(data => {
+          if (!data || !Array.isArray(data.projects)) throw new Error('Invalid project data');
+          render(data.projects);
+        })
+        .catch(err => {
+          grid.innerHTML = '<li class="project-card" role="listitem">Unable to load projects.</li>';
+          // Also log for debugging
+          console.error(err);
+        });
+    })();
+  </script>
+</body>
+</html>
