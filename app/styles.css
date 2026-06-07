@@ -1,0 +1,111 @@
+:root{
+  --bg: #f6f8fb;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(15,23,42,0.08);
+  --gap: 18px;
+  --max-width: 1100px;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* { box-sizing: border-box; }
+html,body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-stack);
+  background: linear-gradient(180deg, var(--bg), #ffffff);
+  color: #0f172a;
+}
+
+header {
+  padding: 28px 20px 8px;
+  text-align: center;
+}
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+.lead {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Dashboard layout */
+.dashboard {
+  max-width: var(--max-width);
+  margin: 22px auto;
+  padding: 18px;
+}
+
+/* Projects grid */
+#projects-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Card styling */
+.project-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), var(--card-bg));
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  border: 1px solid rgba(15,23,42,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 110px;
+  outline: none;
+}
+
+.project-card:focus,
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+}
+
+/* Title and metadata */
+.project-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #081029;
+}
+.project-card .owner {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.project-card .meta {
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #0f172a;
+}
+
+/* Visual cues for status/priority (decorate via attribute classes if desired) */
+.project-card .meta span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Accessibility focus ring for keyboard users */
+.project-card:focus {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 12px 30px rgba(15,23,42,0.08);
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 520px) {
+  .dashboard { padding: 12px; }
+  .project-card { padding: 12px; }
+  h1 { font-size: 1.25rem; }
+}
